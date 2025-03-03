@@ -1,66 +1,84 @@
-## Foundry
+# Decenger - Decentralized Messenger with Integrated Wallet
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A Web3-native simple messaging solution combining secure communication with crypto wallet functionality, built entirely on-chain.
 
-Foundry consists of:
+## Features
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+ **Decentralized Messaging**
+- Peer-to-peer encrypted messaging
+- Group chat functionality
+- Expirable self-destructing messages
+- Message forwarding capabilities
+- Edit/delete message controls (24h edit window)
 
-## Documentation
+ **Integrated Wallet**
+- Native ETH transfers between users
+- Balance management system
+- Secure transaction handling with reentrancy protection
 
-https://book.getfoundry.sh/
+ **Security Features**
+- Non-custodial message storage
+- Admin-controlled system alerts
+- Input validation guards
+- Immutable message timestamps
+
+## Installation
+
+1. Clone repository:
+```bash
+git clone https://github.com/arefxv/Decenger.git
+cd Decenger
+```
+
+2. Install dependencies:
+
+```bash
+forge install OpenZeppelin/openzeppelin-contracts --no-commit
+```
+
+3. Build contract:
+
+```bash
+forge build
+```
 
 ## Usage
 
-### Build
+### Contract Interaction
 
-```shell
-$ forge build
+**Send Message**:
+
+```solidity
+// Send to individual
+sendMessage(receiverAddress, "Hello XV!");
+
+// Broadcast to group
+sendMessageToGroup(groupId, "GM everyone!");
 ```
 
-### Test
+**Manage Messages**:
 
-```shell
-$ forge test
+```solidity
+editMessage(0, "Updated message"); // Edit within 24h
+deleteSentMessage(1); // Remove from history
 ```
 
-### Format
+### Wallet Management
 
-```shell
-$ forge fmt
+**Deposit Funds**:
+
+```solidity
+wallet().value(0.1 ether); // Add ETH to balance
 ```
 
-### Gas Snapshots
+**Transfer Funds**:
 
-```shell
-$ forge snapshot
+```solidity
+sendFunds(recipientAddress).value(0.05 ether); // Secure transfer
 ```
 
-### Anvil
+---
+# THANKS!
 
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+---
+## ArefXV
