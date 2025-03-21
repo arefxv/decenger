@@ -1,6 +1,6 @@
 # Decenger - Decentralized Messenger with Integrated Wallet
 
-A Web3-native simple messaging solution combining secure communication with crypto wallet functionality, built entirely on-chain.
+A Web3-native simple messaging solution combining secure communication with crypto wallet functionality, built entirely on-chain
 
 ## Features
 
